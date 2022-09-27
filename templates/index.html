@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Distribute</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body>
+<!--     <div class="navbar">
+      <a class="nav-link nav-link-ltr" href="/">Home</a>
+      <a class="nav-link nav-link-ltr" href="/projects">My Projects</a>
+      <a class="nav-link nav-link-ltr" href="/newsletter">Newsletter</a>
+    </div> -->
+    <div class="content">
+      <form method="POST" action="/distribute">
+<!--         <input placeholder="email" type="email" name="email" required>
+        <br> -->
+        <input type="date" id="time_span1" name="time_span1"
+       value="2022-10-01">
+        <br>
+        <input type="date" id="time_span2" name="time_span2"
+       value="2022-10-30">
+        <br>
+        <input type="number" id="monday" name="monday" placeholder="minutes on monday" value="300">
+        <br>
+        <input type="number" id="tuesday" name="tuesday" placeholder="minutes on tuesday" value="290">
+        <br>
+        <input type="number" id="wednesday" name="wednesday" placeholder="minutes on wednesday" value="280">
+        <br>
+        <input type="number" id="thursday" name="thursday" placeholder="minutes on thursday" value="270">
+        <br>
+        <input type="number" id="friday" name="friday" placeholder="minutes on friday" value="260">
+        <br>
+        <input type="number" id="saturday" name="saturday" placeholder="minutes on saturday" value="250">
+        <br>
+        <input type="number" id="sunday" name="sunday" placeholder="minutes on sunday" value="240">
+        <div id="activities" class="activities">
+          <input type="text" id="activity1name" name="activity1name" placeholder="activity 1 name" value="Activity">
+          <input type="number" id="activity1duration" name="activity1duration" placeholder="activity 1 duration in minutes" value="15">
+          <input type="number" id="activity1amount" name="activity1amount" placeholder="activity 1 amount" value="12">
+          <button onclick="add_activity()" type="button">Add Activity</button>
+        </div>
+        <button class="button">distribute</button>
+      </form>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

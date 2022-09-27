@@ -1,7 +1,5 @@
 import datetime
-import time
-
-days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+from lists import days
 
 def get_date_y_m_d(date_string):
   date = datetime.datetime.strptime(date_string, "%Y-%m-%d")
@@ -41,10 +39,6 @@ def distribute(activities, days_time, time_span):
     distributed_time[str(date)] = days_time[day]
     distributed_activities[str(date)] = []
     date = date + datetime.timedelta(days=1)
-  # for activity in activities:
-  #   sorted_dates = sorted(distributed_time.items(), key=lambda x: x[1], reverse=True)
-  #   for sorted_date in sorted_dates:
-  #     print(sorted_date)
   while all_activities_done(activities) == False:
     activity = get_activity(activities)
     if activity == False:
@@ -83,15 +77,15 @@ def distribute(activities, days_time, time_span):
   #   distributed_activities[date] = todays_activities
   return distributed_time, sorted(distributed_activities.items())
 
-activities = [{"Name": "Bio", "Duration": 15, "Amount": 12}, {"Name": "Physics", "Duration": 15, "Amount": 12}, {"Name": "Chemistry", "Duration": 15, "Amount": 12}]
-days_time = {"Monday": 240, "Tuesday": 180, "Wednesday": 210, "Thursday": 60, "Friday": 240, "Saturday": 300, "Sunday": 300}
-time_span = ['2022-10-01', '2022-10-30']
-result = distribute(activities, days_time, time_span)
-distributed_time = result[0]
-distributed_activities = result[1]
-for date_info in distributed_activities:
-  date = date_info[0]
-  activities = date_info[1]
-  print(date)
-  for activity in activities:
-    print(activity)
+# activities = [{"Name": "Bio", "Duration": 15, "Amount": 12}, {"Name": "Physics", "Duration": 15, "Amount": 12}, {"Name": "Chemistry", "Duration": 15, "Amount": 12}]
+# days_time = {"Monday": 240, "Tuesday": 180, "Wednesday": 210, "Thursday": 60, "Friday": 240, "Saturday": 300, "Sunday": 300}
+# time_span = ['2022-10-01', '2022-10-30']
+# result = distribute(activities, days_time, time_span)
+# distributed_time = result[0]
+# distributed_activities = result[1]
+# for date_info in distributed_activities:
+#   date = date_info[0]
+#   activities = date_info[1]
+#   print(date)
+#   for activity in activities:
+#     print(activity)
