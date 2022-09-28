@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Distribute - Your Timetable</title>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <div class="content">
+      {% for key_value in timetable %}
+        {% set date = key_value[0] %}
+        {% set routine = key_value[1] %}
+        <p>{{date}}:</p>
+        {% if routine == [] %}
+          <p>Nothing for this day</p>
+        {% else %}
+          {% for activity in routine %}
+            <p>{{activity['Name']}} - {{activity['Duration']}} mins</p>
+          {% endfor %}
+        {% endif %}
+        <br>
+      {% endfor %}
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

@@ -27,6 +27,6 @@ def distribute_func():
     output = distribute(activities, days_time, time_span)
     # distributed_time = output[0]
     distributed_activities = output[1]
-    return str(distributed_activities)
+    return render_template('timetable.html', timetable=distributed_activities)
   else:
     return redirect("/")

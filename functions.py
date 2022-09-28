@@ -34,7 +34,7 @@ def distribute(activities, days_time, time_span):
   day_start = time_span[0]
   day_end = time_span[1]
   date = get_date_y_m_d(day_start)
-  while str(date) != str(day_end):
+  while str(date) <= str(day_end):
     day = get_day_y_m_d(str(date))
     distributed_time[str(date)] = days_time[day]
     distributed_activities[str(date)] = []
@@ -76,16 +76,3 @@ def distribute(activities, days_time, time_span):
   #   del distributed_activities[date]
   #   distributed_activities[date] = todays_activities
   return distributed_time, sorted(distributed_activities.items())
-
-# activities = [{"Name": "Bio", "Duration": 15, "Amount": 12}, {"Name": "Physics", "Duration": 15, "Amount": 12}, {"Name": "Chemistry", "Duration": 15, "Amount": 12}]
-# days_time = {"Monday": 240, "Tuesday": 180, "Wednesday": 210, "Thursday": 60, "Friday": 240, "Saturday": 300, "Sunday": 300}
-# time_span = ['2022-10-01', '2022-10-30']
-# result = distribute(activities, days_time, time_span)
-# distributed_time = result[0]
-# distributed_activities = result[1]
-# for date_info in distributed_activities:
-#   date = date_info[0]
-#   activities = date_info[1]
-#   print(date)
-#   for activity in activities:
-#     print(activity)
