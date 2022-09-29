@@ -1,0 +1,11 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #1B232F;
+  color: white;
+}
+
+input {
+  background-color: #2f4565;
+  color: white;
+  border: 1px solid #2b6fd4;
+}

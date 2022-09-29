@@ -9,6 +9,8 @@
   </head>
   <body>
     <div class="content">
+      <button onclick='download_timetable()'>Download Timetable as Text File</button>
+      <h1>Your Timetable:</h1>
       {% for key_value in timetable %}
         {% set date = key_value[0] %}
         {% set routine = key_value[1] %}

@@ -9,18 +9,22 @@
   </head>
   <body>
     <div class="content">
+      {% if error != False and error != "" and error != None %}
+        <p>{{erorr}}</p>
+      {% endif %}
+      <h1>Make Your Timetable</h1>
       <form method="POST" action="/distribute">
+        <label for="time_span1">Start Date</label>
         <input type="date" id="time_span1" name="time_span1"
        value="2022-10-01">
         <br>
+        <label for="time_span2">End Date</label>
         <input type="date" id="time_span2" name="time_span2"
        value="2022-10-30">
         <div id="days_time" class="days_time">
         </div>
         <div id="activities" class="activities">
-          <input type="text" id="activity1name" name="activity1name" placeholder="activity 1 name" value="Activity">
-          <input type="number" id="activity1duration" name="activity1duration" placeholder="activity 1 duration in minutes" value="15">
-          <input type="number" id="activity1amount" name="activity1amount" placeholder="activity 1 amount" value="12">
+          <p>Activity Name | Duration (Minutes) | Amount of Sessions in Total</p>
           <button id="add" onclick="add_activity()" type="button">Add Activity</button>
         </div>
         <button class="button">distribute</button>

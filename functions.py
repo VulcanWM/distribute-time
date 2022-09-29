@@ -51,21 +51,24 @@ def distribute(activities, days_time, time_span):
         if activity == False:
           break
         time_for_activity = activity['Duration']
-        time_today = distributed_time[sorted_date]
-        time_now = time_today - time_for_activity
-        del distributed_time[sorted_date]
-        distributed_time[sorted_date] = time_now
-        todays_activities = distributed_activities[sorted_date]
-        todays_activities.append(activity)
-        del distributed_activities[sorted_date]
-        distributed_activities[sorted_date] = todays_activities
-        amount_activity = activity['Amount']
-        amount_activity = amount_activity - 1
-        del activity['Amount']
-        activity['Amount'] = amount_activity
-        index = activities.index(activity)
-        activities.pop(index)
-        activities.insert(index, activity)
+        if time_for_activity > distributed_time[sorted_date]:
+          pass
+        else:
+          time_today = distributed_time[sorted_date]
+          time_now = time_today - time_for_activity
+          del distributed_time[sorted_date]
+          distributed_time[sorted_date] = time_now
+          todays_activities = distributed_activities[sorted_date]
+          todays_activities.append(activity)
+          del distributed_activities[sorted_date]
+          distributed_activities[sorted_date] = todays_activities
+          amount_activity = activity['Amount']
+          amount_activity = amount_activity - 1
+          del activity['Amount']
+          activity['Amount'] = amount_activity
+          index = activities.index(activity)
+          activities.pop(index)
+          activities.insert(index, activity)
   # for date in distributed_activities_iter:
   # for i in range(len(distributed_activities)):
   #   date = list(distributed_activities.keys())[i]
