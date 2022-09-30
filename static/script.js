@@ -73,7 +73,34 @@ function download_timetable(){
   a.download = "timetable.txt";
   a.click();
 }
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  // console.log("drag")
+  // console.log(ev)
+  var div = document.getElementById(ev.target.id)
+  // console.log("div")
+  // console.log(div)
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  // console.log("drop")
+  var data = ev.dataTransfer.getData("text");
+  // console.log(ev.target)
+  // if ('Nothing for this day' in ev.target){
+  //   console.log("cool ig")
+  // }
+  var text = document.getElementById(ev.target.innerText)
+  ev.target.appendChild(document.getElementById(data));
+}
+
 if (window.location.pathname == "/"){
   add_days();
   add_activity();
 }
+

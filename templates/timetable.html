@@ -12,16 +12,19 @@
       <button onclick='download_timetable()'>Download Timetable as Text File</button>
       <h1>Your Timetable:</h1>
       {% for key_value in timetable %}
-        {% set date = key_value[2] %}
-        {% set routine = key_value[1] %}
-        <p>{{date}}:</p>
-        {% if routine == [] %}
-          <p>Nothing for this day</p>
-        {% else %}
-          {% for activity in routine %}
-            <p class="activity" style="background-color: {{colours[activity['Name']]}}">{{activity['Name']}} - {{activity['Duration']}} mins</p>
-          {% endfor %}
-        {% endif %}
+        <div class="day" ondrop="drop(event)" ondragover="allowDrop(event)">
+          {% set date = key_value[2] %}
+          {% set routine = key_value[1] %}
+          {% set date2 = key_value[0] %}
+          <p>{{date}}:</p>
+          {% if routine == [] %}
+            <p>Nothing for this day</p>
+          {% else %}
+            {% for activity in routine %}
+              <p class="activity" style="background-color: {{colours[activity['Name']]}}" draggable="true" ondragstart="drag(event)" id="{{date2}}:{{loop.index}}">{{activity['Name']}} - {{activity['Duration']}} mins</p>
+            {% endfor %}
+          {% endif %}
+        </div>
         <br>
       {% endfor %}
     </div>
