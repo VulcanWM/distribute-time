@@ -12,14 +12,14 @@
       <button onclick='download_timetable()'>Download Timetable as Text File</button>
       <h1>Your Timetable:</h1>
       {% for key_value in timetable %}
-        {% set date = key_value[0] %}
+        {% set date = key_value[2] %}
         {% set routine = key_value[1] %}
         <p>{{date}}:</p>
         {% if routine == [] %}
           <p>Nothing for this day</p>
         {% else %}
           {% for activity in routine %}
-            <p>{{activity['Name']}} - {{activity['Duration']}} mins</p>
+            <p class="activity" style="background-color: {{colours[activity['Name']]}}">{{activity['Name']}} - {{activity['Duration']}} mins</p>
           {% endfor %}
         {% endif %}
         <br>

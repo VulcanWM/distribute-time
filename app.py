@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, flash
 from functions import distribute
-from lists import days
+from lists import days, months
 import os
+import random
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
@@ -27,8 +28,23 @@ def distribute_func():
         activity_dict = {"Name": request.form[key], "Duration": int(request.form[f'activity{activity_number}duration']), "Amount": int(request.form[f'activity{activity_number}amount'])}
         activities.append(activity_dict)
     output = distribute(activities, days_time, time_span)
+    colours = {}
+    for i in range(len(activities)):
+      colour = "hsl(" + str(360 * random.uniform(0,1)) + ',' + str(25 + 70 * random.uniform(0,1)) + '%,' + str(85 + 10 * random.uniform(0,1)) + '%)'
+      colours[activities[i]["Name"]] = colour
     # distributed_time = output[0]
     distributed_activities = output[1]
-    return render_template('timetable.html', timetable=distributed_activities)
+    distributed_new = []
+    for key in distributed_activities:
+      date = key[0]
+      split = date.split("-")
+      year = split[0]
+      month = split[1]
+      day = split[2]
+      new_date = f"{day} {months[int(month) - 1]} {year}"
+      data = list(key)
+      data.append(new_date)
+      distributed_new.append(data)
+    return render_template('timetable.html', timetable=distributed_new, colours=colours)
   else:
     return redirect("/")

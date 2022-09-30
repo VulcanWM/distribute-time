@@ -9,3 +9,11 @@ input {
   color: white;
   border: 1px solid #2b6fd4;
 }
+
+.activity {
+  color: black;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 4px;position: relative;
+  display: inline-block;
+}

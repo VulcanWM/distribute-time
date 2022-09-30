@@ -1,5 +1,6 @@
 import datetime
 from lists import days
+import random
 
 def get_date_y_m_d(date_string):
   date = datetime.datetime.strptime(date_string, "%Y-%m-%d")
