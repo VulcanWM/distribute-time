@@ -32,7 +32,7 @@ def distribute_func():
         date = request.form[key]
         value_key = key.replace("dt", "duration")
         modified_dates[date] = int(request.form[value_key])
-      if key.startswith("modified_dt")
+      # if key.startswith("modified_dt")
     output = distribute(activities, days_time, time_span, modified_dates)
     colours = {}
     for i in range(len(activities)):
