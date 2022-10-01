@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Distribute</title>
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='collapsible.css') }}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
   <body>
@@ -28,13 +29,31 @@
         </div>
         <br>
         <div id="activities" class="activities">
+          <h3>Activities</h3>
           <p>Activity Name | Duration (Minutes) | Amount of Sessions in Total</p>
           <button id="add" class="add" onclick="add_activity()" type="button">Add Activity</button>
+        </div>
+        <br>
+        <button class="collapsible" type="button">Advanced</button>
+        <div class="collapsible_content">
+          <br>
+          <div id="modified_dates" class="modified_dates">
+            <h3>Modified Dates</h3>
+            <p>Date | Study Time (minutes)</p>
+            <button id="add_date" class="add" onclick="add_modified_date()" type="button">Add Modified Date</button>
+          </div>
+          <br>
+          <div id="modified_dt_ranges" class="modified_dt_ranges">
+            <h3>Modified Date Ranges</h3>
+            <p>Start Date | End Date | Study Time (minutes)</p>
+            <button id="add_dt_range" class="add" onclick="add_modified_dt_range()" type="button">Add Modified Date Range</button>
+          </div>
         </div>
         <br>
         <button class="button">distribute</button>
       </form>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='collapsible.js') }}"></script>
   </body>
 </html>

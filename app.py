@@ -19,6 +19,7 @@ def distribute_func():
     time_span = [time_span1, time_span2]
     days_time = {}
     activities = []
+    modified_dates = {}
     for key in request.form:
       if key.capitalize() in days:
         days_time[key.capitalize()] = int(request.form[key.lower()])
@@ -27,7 +28,12 @@ def distribute_func():
         activity_number = activity_number.replace("name", "")
         activity_dict = {"Name": request.form[key], "Duration": int(request.form[f'activity{activity_number}duration']), "Amount": int(request.form[f'activity{activity_number}amount'])}
         activities.append(activity_dict)
-    output = distribute(activities, days_time, time_span, modified_dates={})
+      if key.startswith("modified_date") and key.endswith("dt"):
+        date = request.form[key]
+        value_key = key.replace("dt", "duration")
+        modified_dates[date] = int(request.form[value_key])
+      if key.startswith("modified_dt")
+    output = distribute(activities, days_time, time_span, modified_dates)
     colours = {}
     for i in range(len(activities)):
       colour = "hsl(" + str(360 * random.uniform(0,1)) + ',' + str(25 + 70 * random.uniform(0,1)) + '%,' + str(85 + 10 * random.uniform(0,1)) + '%)'

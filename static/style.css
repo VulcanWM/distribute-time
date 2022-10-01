@@ -33,7 +33,7 @@ a:hover {
   border: 0.2em solid grey;
 }
 
-.dates, .days_time, .activities{
+.dates, .days_time, .activities, .modified_dates, .modified_dt_ranges{
   padding: 0.3em;
   border: 0.1em solid grey;
   border-radius: 0.7em

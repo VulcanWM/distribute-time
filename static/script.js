@@ -68,6 +68,91 @@ function add_activity(){
   activities_div.appendChild(br);
 }
 
+function add_modified_date(){
+  var date = "hello";
+  var date_number = 0;
+  while (date != null){
+    date_number = date_number + 1;
+    date = document.getElementById(`modified_date${date_number}dt`)
+  }
+  var date_div = document.getElementById("modified_dates");
+  
+  var button = document.getElementById("add_date");
+  button.parentNode.removeChild(button);
+  
+  var date_new_date = document.createElement("input");
+  date_new_date.setAttribute("type", "date");
+  date_new_date.setAttribute("id", `modified_date${date_number}dt`);
+  date_new_date.setAttribute("name", `modified_date${date_number}dt`);
+  date_new_date.setAttribute("value", `2022-10-01`);
+  date_div.appendChild(date_new_date);
+  
+  var date_new_time = document.createElement("input");
+  date_new_time.setAttribute("type", "number");
+  date_new_time.setAttribute("id", `modified_date${date_number}duration`);
+  date_new_time.setAttribute("name", `modified_date${date_number}duration`);
+  date_new_time.setAttribute("placeholder", `study time on 2022-10-01 in minutes`);
+  date_new_time.setAttribute("value", `0`);
+  date_div.appendChild(date_new_time);
+
+  var new_button = document.createElement("button");
+  new_button.setAttribute("id", "add_date");
+  new_button.setAttribute("class", "add")
+  new_button.setAttribute("onclick", "add_modified_date()");
+  new_button.setAttribute("type", "button")
+  new_button.innerHTML = "Add Modified Date"
+  date_div.appendChild(new_button)
+
+  var br = document.createElement("br");
+  date_div.appendChild(br);
+}
+
+function add_modified_dt_range(){
+  var date = "hello";
+  var date_number = 0;
+  while (date != null){
+    date_number = date_number + 1;
+    date = document.getElementById(`modified_dt_range${date_number}dt`)
+  }
+  var date_div = document.getElementById("modified_dt_ranges");
+  
+  var button = document.getElementById("add_dt_range");
+  button.parentNode.removeChild(button);
+  
+  var date_new_date = document.createElement("input");
+  date_new_date.setAttribute("type", "date");
+  date_new_date.setAttribute("id", `modified_dt_range${date_number}dt`);
+  date_new_date.setAttribute("name", `modified_dt_range${date_number}dt`);
+  date_new_date.setAttribute("value", `2022-10-03`);
+  date_div.appendChild(date_new_date);
+
+  var date_new_2date = document.createElement("input");
+  date_new_2date.setAttribute("type", "date");
+  date_new_2date.setAttribute("id", `modified_dt_range${date_number}2dt`);
+  date_new_2date.setAttribute("name", `modified_dt_range${date_number}2dt`);
+  date_new_2date.setAttribute("value", `2022-10-10`);
+  date_div.appendChild(date_new_2date);
+  
+  var date_new_time = document.createElement("input");
+  date_new_time.setAttribute("type", "number");
+  date_new_time.setAttribute("id", `modified_date${date_number}duration`);
+  date_new_time.setAttribute("name", `modified_date${date_number}duration`);
+  date_new_time.setAttribute("placeholder", `study time during range in minutes`);
+  date_new_time.setAttribute("value", `0`);
+  date_div.appendChild(date_new_time);
+
+  var new_button = document.createElement("button");
+  new_button.setAttribute("id", "add_dt_range");
+  new_button.setAttribute("class", "add")
+  new_button.setAttribute("onclick", "add_modified_dt_range()");
+  new_button.setAttribute("type", "button")
+  new_button.innerHTML = "Add Modified Date"
+  date_div.appendChild(new_button)
+
+  var br = document.createElement("br");
+  date_div.appendChild(br);
+}
+
 function download_timetable(){
   var a = document.createElement("a");
   var text = document.body.innerText.replace("Download Timetable as Text File", "")
