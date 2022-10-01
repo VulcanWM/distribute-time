@@ -14,19 +14,24 @@
       {% endif %}
       <h1>Make Your Timetable</h1>
       <form method="POST" action="/distribute">
-        <label for="time_span1">Start Date</label>
-        <input type="date" id="time_span1" name="time_span1"
+        <div class="dates">
+          <label for="time_span1">Start Date</label>
+          <input type="date" id="time_span1" name="time_span1"
        value="2022-10-01">
-        <br>
-        <label for="time_span2">End Date</label>
-        <input type="date" id="time_span2" name="time_span2"
+          <br>
+          <label for="time_span2">End Date</label>
+          <input type="date" id="time_span2" name="time_span2"
        value="2022-10-30">
+        </div>
+        <br>
         <div id="days_time" class="days_time">
         </div>
+        <br>
         <div id="activities" class="activities">
           <p>Activity Name | Duration (Minutes) | Amount of Sessions in Total</p>
-          <button id="add" onclick="add_activity()" type="button">Add Activity</button>
+          <button id="add" class="add" onclick="add_activity()" type="button">Add Activity</button>
         </div>
+        <br>
         <button class="button">distribute</button>
       </form>
     </div>

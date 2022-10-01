@@ -27,7 +27,7 @@ def distribute_func():
         activity_number = activity_number.replace("name", "")
         activity_dict = {"Name": request.form[key], "Duration": int(request.form[f'activity{activity_number}duration']), "Amount": int(request.form[f'activity{activity_number}amount'])}
         activities.append(activity_dict)
-    output = distribute(activities, days_time, time_span)
+    output = distribute(activities, days_time, time_span, modified_dates={})
     colours = {}
     for i in range(len(activities)):
       colour = "hsl(" + str(360 * random.uniform(0,1)) + ',' + str(25 + 70 * random.uniform(0,1)) + '%,' + str(85 + 10 * random.uniform(0,1)) + '%)'

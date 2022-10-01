@@ -9,17 +9,18 @@
   </head>
   <body>
     <div class="content">
-      <button onclick='download_timetable()'>Download Timetable as Text File</button>
+      <a href="/">Generate another timetable</a>
+      <br><br>
+      <button onclick='download_timetable()' class="button">Download Timetable as Text File</button>
       <h1>Your Timetable:</h1>
+      <div class="timetable">
       {% for key_value in timetable %}
-        <div class="day" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="day" id="{{key_value[0]}}" ondrop="drop(event)" ondragover="allowDrop(event)">
           {% set date = key_value[2] %}
           {% set routine = key_value[1] %}
           {% set date2 = key_value[0] %}
-          <p>{{date}}:</p>
-          {% if routine == [] %}
-            <p>Nothing for this day</p>
-          {% else %}
+          <span>{{date}} </span>
+          {% if routine != [] %}
             {% for activity in routine %}
               <p class="activity" style="background-color: {{colours[activity['Name']]}}" draggable="true" ondragstart="drag(event)" id="{{date2}}:{{loop.index}}">{{activity['Name']}} - {{activity['Duration']}} mins</p>
             {% endfor %}
@@ -27,6 +28,7 @@
         </div>
         <br>
       {% endfor %}
+      </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>

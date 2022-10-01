@@ -58,6 +58,7 @@ function add_activity(){
 
   var new_button = document.createElement("button");
   new_button.setAttribute("id", "add");
+  new_button.setAttribute("class", "add")
   new_button.setAttribute("onclick", "add_activity()");
   new_button.setAttribute("type", "button")
   new_button.innerHTML = "Add Activity"
@@ -69,7 +70,9 @@ function add_activity(){
 
 function download_timetable(){
   var a = document.createElement("a");
-  a.href = window.URL.createObjectURL(new Blob([document.body.innerText.replace("Download Timetable as Text File", "")], {type: "text/plain"}));
+  var text = document.body.innerText.replace("Download Timetable as Text File", "")
+  text = text.replace("Generate another timetable", "")
+  a.href = window.URL.createObjectURL(new Blob([text], {type: "text/plain"}));
   a.download = "timetable.txt";
   a.click();
 }

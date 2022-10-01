@@ -1,6 +1,5 @@
 import datetime
 from lists import days
-import random
 
 def get_date_y_m_d(date_string):
   date = datetime.datetime.strptime(date_string, "%Y-%m-%d")
@@ -29,7 +28,7 @@ def all_activities_done(activities):
       return False
   return True
 
-def distribute(activities, days_time, time_span):
+def distribute(activities, days_time, time_span, modified_dates):
   distributed_time = {}
   distributed_activities = {}
   day_start = time_span[0]
@@ -37,7 +36,10 @@ def distribute(activities, days_time, time_span):
   date = get_date_y_m_d(day_start)
   while str(date) <= str(day_end):
     day = get_day_y_m_d(str(date))
-    distributed_time[str(date)] = days_time[day]
+    if str(date) in str(modified_dates.keys()):
+      distributed_activities[str(date)] = modified_dates[str(date)]
+    else:
+      distributed_time[str(date)] = days_time[day]
     distributed_activities[str(date)] = []
     date = date + datetime.timedelta(days=1)
   while all_activities_done(activities) == False:
