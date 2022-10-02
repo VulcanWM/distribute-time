@@ -1,5 +1,6 @@
 import datetime
 from lists import days
+from flask import session
 
 def get_date_y_m_d(date_string):
   date = datetime.datetime.strptime(date_string, "%Y-%m-%d")
@@ -82,3 +83,18 @@ def distribute(activities, days_time, time_span, modified_dates):
   #   del distributed_activities[date]
   #   distributed_activities[date] = todays_activities
   return distributed_time, sorted(distributed_activities.items())
+
+def add_cookie(key, value):
+  session[key] = value
+
+def del_cookies():
+  session.clear()
+
+def getcookie(key):
+  try:
+    if (x := session.get(key)):
+      return x
+    else:
+      return False
+  except:
+    return False
