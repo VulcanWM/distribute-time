@@ -40,8 +40,7 @@ def distribute_func():
         date = get_date_y_m_d(loop_start)
         while str(date) <= str(loop_end):
           modified_dates[str(date)] = int(loop_duration)
-          date = date + datetime.timedelta(days=1) 
-    print(modified_dates)
+          date = date + datetime.timedelta(days=1)
     output = distribute(activities, days_time, time_span, modified_dates)
     colours = {}
     for i in range(len(activities)):
