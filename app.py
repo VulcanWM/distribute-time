@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash
-from functions import distribute
+from functions import distribute, get_date_y_m_d
 from lists import days, months
+import datetime
 import os
 import random
 
@@ -32,7 +33,15 @@ def distribute_func():
         date = request.form[key]
         value_key = key.replace("dt", "duration")
         modified_dates[date] = int(request.form[value_key])
-      # if key.startswith("modified_dt")
+      if key.startswith("modified_dt_range") and key.endswith("date"):
+        loop_start = request.form[key]
+        loop_end = request.form[key + "2"]
+        loop_duration = request.form[key.replace("date", "duration")]
+        date = get_date_y_m_d(loop_start)
+        while str(date) <= str(loop_end):
+          modified_dates[str(date)] = int(loop_duration)
+          date = date + datetime.timedelta(days=1) 
+    print(modified_dates)
     output = distribute(activities, days_time, time_span, modified_dates)
     colours = {}
     for i in range(len(activities)):
