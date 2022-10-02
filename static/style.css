@@ -8,6 +8,15 @@ input {
   background-color: #2f4565;
   color: white;
   border: 1px solid #2b6fd4;
+  border-radius: 6px;
+}
+
+input:hover {
+  background-color: #405a82;
+}
+
+input:active {
+  background-color: #446ba7;
 }
 
 .activity {
@@ -36,7 +45,7 @@ a:hover {
 .dates, .days_time, .activities, .modified_dates, .modified_dt_ranges{
   padding: 0.3em;
   border: 0.1em solid grey;
-  border-radius: 0.7em
+  border-radius: 0.7em;
 }
 
 .add {
@@ -70,11 +79,11 @@ a:hover {
   color: black;
 }
 
-.btn-9 {
-  z-index: 2;
-  transition: all 0.3s ease;
-  overflow: hidden;
+.download {
+  width: 150px;
+  height: 80px;
 }
+
 .button:after {
   position: absolute;
   content: " ";
