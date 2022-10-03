@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect
 from functions import distribute, get_date_y_m_d
 from lists import days, months
 import datetime
