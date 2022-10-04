@@ -84,17 +84,17 @@ def distribute(activities, days_time, time_span, modified_dates):
   #   distributed_activities[date] = todays_activities
   return distributed_time, sorted(distributed_activities.items())
 
-# def add_cookie(key, value):
-#   session[key] = value
+def add_cookie(key, value):
+  session[key] = value
 
-# def del_cookies():
-#   session.clear()
+def del_cookies():
+  session.clear()
 
-# def getcookie(key):
-#   try:
-#     if (x := session.get(key)):
-#       return x
-#     else:
-#       return False
-#   except:
-#     return False
+def getcookie(key):
+  try:
+    if (x := session.get(key)):
+      return x
+    else:
+      return False
+  except:
+    return False

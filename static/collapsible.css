@@ -1,11 +1,3 @@
-.collapsible {
-  background-color: #777;
-}
-
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
 .collapsible:after {
   content: '\002B';
   font-weight: bold;
