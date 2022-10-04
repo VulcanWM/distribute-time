@@ -2,6 +2,7 @@ body {
   font-family: 'Nunito', sans-serif;
   background-color: #1B232F;
   color: white;
+  margin: 10px;
 }
 
 input {
@@ -55,8 +56,8 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  border: 0.2em solid #2f4565;
   border-radius: 0.5em;
+  border: none;
 }
 
 button:hover {
@@ -65,4 +66,12 @@ button:hover {
 
 .add {
   padding: 3px 5px;
+}
+
+.link {
+  color: white;
+}
+
+.link:hover {
+  color: white;
 }

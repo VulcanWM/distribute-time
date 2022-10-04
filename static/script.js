@@ -155,8 +155,8 @@ function add_modified_dt_range(){
 
 function download_timetable(){
   var a = document.createElement("a");
-  var text = document.body.innerText.replace("Download Timetable as Text File", "")
-  text = text.replace("Generate another timetable", "")
+  var text = document.body.innerText
+  text = text.split("Download Timetable as Text File")[1]
   a.href = window.URL.createObjectURL(new Blob([text], {type: "text/plain"}));
   a.download = "timetable.txt";
   a.click();
@@ -178,7 +178,7 @@ function drop(ev) {
   ev.target.appendChild(document.getElementById(data));
 }
 
-if (window.location.pathname == "/"){
+if (window.location.pathname == "/distribute"){
   add_days();
   add_activity();
 }

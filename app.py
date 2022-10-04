@@ -12,6 +12,10 @@ app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 def index():
   return render_template('index.html')
 
+@app.route("/distribute")
+def distribute_page():
+  return render_template('distribute.html')
+
 @app.route("/distribute", methods=['POST', 'GET'])
 def distribute_func():
   if request.method == 'POST':

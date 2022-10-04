@@ -5,55 +5,24 @@
     <meta name="viewport" content="width=device-width">
     <title>Distribute</title>
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='collapsible.css') }}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
   <body>
     <div class="content">
-      {% if error != False and error != "" and error != None %}
-        <p>{{erorr}}</p>
-      {% endif %}
-      <h1>Make Your Timetable</h1>
-      <form method="POST" action="/distribute">
-        <div class="dates">
-          <label for="time_span1">Start Date</label>
-          <input type="date" id="time_span1" name="time_span1"
-       value="2022-10-01">
-          <br>
-          <label for="time_span2">End Date</label>
-          <input type="date" id="time_span2" name="time_span2"
-       value="2022-10-30">
-        </div>
-        <br>
-        <div id="days_time" class="days_time">
-        </div>
-        <br>
-        <div id="activities" class="activities">
-          <h3>Activities</h3>
-          <p>Activity Name | Duration (Minutes) | Amount of Sessions in Total</p>
-          <button id="add" class="add" onclick="add_activity()" type="button">Add Activity</button>
-        </div>
-        <br>
-        <button class="collapsible" type="button">Advanced</button>
-        <div class="collapsible_content">
-          <br>
-          <div id="modified_dates" class="modified_dates">
-            <h3>Modified Dates</h3>
-            <p>Date | Study Time (minutes)</p>
-            <button id="add_date" class="add" onclick="add_modified_date()" type="button">Add Modified Date</button>
-          </div>
-          <br>
-          <div id="modified_dt_ranges" class="modified_dt_ranges">
-            <h3>Modified Date Ranges</h3>
-            <p>Start Date | End Date | Study Time (minutes)</p>
-            <button id="add_dt_range" class="add" onclick="add_modified_dt_range()" type="button">Add Modified Date Range</button>
-          </div>
-        </div>
-        <br>
-        <button class="button">distribute</button>
-      </form>
+      <h1>Distribute</h1>
+      <button>
+        <a class="link" href="/distribute">Generate a timetable</a>
+      </button>
+      <p>Distribute is a website where you can make your own timetable.</p>
+      <p>It has many features such as:</p>
+      <ul>
+        <li><strong>Automatic Timetable Generating</strong> - Just input what activities you need to do, how long they are, and how long you study on each day, and you get a timetable generated!</li>
+        <li><strong>Customisability</strong> - If you aren't free on a day or a range of days, you can input those days and the program will generate your timetable based on that!</li>
+        <li><strong>Unlimited Generations</strong> - Want to generate 5 timetables? Or 100? You can generate as many as you want!</li>
+        <li><strong>Drag and Drop Activities</strong> - If you want to swap 2 activies around, just drag and drop them!</li>
+        <li><strong>Export timetable</strong> - You can export your timetable as a text file!</li>
+      </ul>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script src="{{ url_for('static', filename='collapsible.js') }}"></script>
   </body>
 </html>
