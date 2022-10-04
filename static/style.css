@@ -51,11 +51,12 @@ a:hover {
 button {
   background-color: #2b6fd4;
   color: white;
-  padding: 10px 20px;
+  padding: 0.7em 1.5em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  border: none;
+  border: 0.2em solid #2f4565;
+  border-radius: 0.5em;
 }
 
 button:hover {
