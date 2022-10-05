@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Distribute - Generate Timetable</title>
+    <title>Distribute Time - Generate Timetable</title>
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url_for('static', filename='collapsible.css') }}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -13,7 +13,8 @@
       {% if error != False and error != "" and error != None %}
         <p>{{erorr}}</p>
       {% endif %}
-      <h1>Make Your Timetable</h1>
+      <h1>Distribute Time</h1>
+      <h2>Make Your Timetable</h2>
       <form method="POST" action="/distribute">
         <div class="dates">
           <label for="time_span1">Start Date</label>

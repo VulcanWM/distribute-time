@@ -183,6 +183,25 @@ if (window.location.pathname == "/distribute"){
   add_activity();
 }
 
+function add_meta_tags(){
+  var tags = [
+    '<meta name="description" content="Website where you automatically make your own timetable. Features: customisability, unlimited generations, drag and drop activites, export timetable"/>', 
+    '<meta name="keywords" content="timetable,generate,automatic,customisability,unlimited,generations,drag,drop,activites">',
+    '<meta name="author" content="VulcanWM">',
+    '<meta name="robots" content="index, follow">',
+    '<meta property="og:type" content="tool" />',
+    '<meta property="og:title" content="TITLE OF YOUR POST OR PAGE" />',
+    '<meta property="og:description" content="Website where you automatically make your own timetable. Features: customisability, unlimited generations, drag and drop activites, export timetable" />',
+    '<meta property="og:url" content="https://distribute-time.vulcanwm.repl.co" />',
+    '<meta property="og:site_name" content="Distribute Time" />'
+  ]
+  var i = 0;
+  while (i < tags.length){
+    document.head.innerHTML += tags[i];
+    i++;
+  }
+}
+
 var Script1 = document.createElement("script");
 Script1.setAttribute("async", null);
 Script1.src = 
@@ -194,3 +213,5 @@ var Script2 = document.createElement("script");
 Script2.innerText = 
 "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-P9PNVHSYQD');";
 document.head.appendChild(Script2);
+
+add_meta_tags();
