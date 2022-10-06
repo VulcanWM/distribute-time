@@ -16,7 +16,7 @@ def index():
 def distribute_page():
   return render_template('distribute.html')
 
-@app.route("/distribute", methods=['POST', 'GET'])
+@app.route("/timetable", methods=['POST', 'GET'])
 def distribute_func():
   if request.method == 'POST':
     time_span1 = request.form['time_span1']
@@ -65,4 +65,4 @@ def distribute_func():
       distributed_new.append(data)
     return render_template('timetable.html', timetable=distributed_new, colours=colours)
   else:
-    return redirect("/")
+    return redirect("/distribute")

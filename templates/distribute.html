@@ -7,6 +7,15 @@
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ url_for('static', filename='collapsible.css') }}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="description" content="Website where you automatically make your own timetable. Features: customisability, unlimited generations, drag and drop activites, export timetable"/>
+    <meta name="keywords" content="timetable,generate,automatic,customisability,unlimited,generations,drag,drop,activites">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="tool" />
+    <meta property="og:title" content="Distribute Time" />
+    <meta property="og:description" content="Website where you automatically make your own timetable. Features: customisability, unlimited generations, drag and drop activites, export timetable" />
+    <meta property="og:image" content="{{ url_for('static', filename='logo.png') }}" />
+    <meta property="og:url" content="https://distribute-time.vulcanwm.repl.co" />
+    <meta property="og:site_name" content="Distribute Time" />
   </head>
   <body>
     <div class="content">
@@ -15,7 +24,7 @@
       {% endif %}
       <h1>Distribute Time</h1>
       <h2>Make Your Timetable</h2>
-      <form method="POST" action="/distribute">
+      <form method="POST" action="/timetable">
         <div class="dates">
           <label for="time_span1">Start Date</label>
           <input type="date" id="time_span1" name="time_span1"
