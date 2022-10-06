@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from functions import distribute, get_date_y_m_d
-from lists import days, months
+from lists import days, months, description
 import datetime
 import os
 import random
@@ -10,11 +10,11 @@ app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
 @app.route('/')
 def index():
-  return render_template('index.html')
+  return render_template('index.html', description=description)
 
 @app.route("/distribute")
 def distribute_page():
-  return render_template('distribute.html')
+  return render_template('distribute.html', description=description)
 
 @app.route("/timetable", methods=['POST', 'GET'])
 def distribute_func():
@@ -63,6 +63,6 @@ def distribute_func():
       data = list(key)
       data.append(new_date)
       distributed_new.append(data)
-    return render_template('timetable.html', timetable=distributed_new, colours=colours)
+    return render_template('timetable.html', timetable=distributed_new, colours=colours, description=description)
   else:
     return redirect("/distribute")
