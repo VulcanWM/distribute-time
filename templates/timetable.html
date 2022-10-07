@@ -20,13 +20,8 @@
   </head>
   <body>
     <div class="content">
-      <h1>Your Timetable</h1>
-      <button>
-        <a class="link" href="/">Home</a>
-      </button>
-      <button>
-        <a class="link" href="/distribute">Generate another timetable</a>
-      </button>
+      <button onclick="window.location.href='/'">Home</button>
+      <button onclick="window.location.href='/distribute'">Generate another timetable</button>
       <br><br>
       <button onclick='download_timetable()' class="button download">Download Timetable as Text File</button>
       <button onclick='saveDiv("timetable", "Your Timetable", "timetable")' class="button download">Download Timetable as PDF</button>
