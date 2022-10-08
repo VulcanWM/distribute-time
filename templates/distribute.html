@@ -27,6 +27,7 @@
       <h2>Make Your Timetable</h2>
       <form method="POST" action="/timetable">
         <div class="dates">
+          <h4>This box is for the start and end date of your timetable</h4>
           <label for="time_span1">Start Date</label>
           <input type="date" id="time_span1" name="time_span1"
        value="2022-10-01">
@@ -37,24 +38,32 @@
         </div>
         <br>
         <div id="days_time" class="days_time">
+          <h4>This box is for how much study time you have on each day (in minutes).</h4>
         </div>
         <br>
         <div id="activities" class="activities">
+          <h4>This box is for all the activites you want to be on your timetable</h4>
+          <p>The first box is for <strong>activity name</strong></p>
+          <p>the second box is for <strong>how long each session of the activity is</strong> (in minutes)</p>
+          <p>The third box is for the <strong>amount of sessions of that activity</strong> you want to do in total</p>
           <h3>Activities</h3>
           <p>Activity Name | Duration (Minutes) | Amount of Sessions in Total</p>
           <button id="add" class="add" onclick="add_activity()" type="button">Add Activity</button>
         </div>
         <br>
+        <p>If on a certain date or a date range, you study for less or more time, you can add that by clicking the advanced button and revealing the forms for those.</p>
         <button class="collapsible" type="button">Advanced</button>
         <div class="collapsible_content">
           <br>
           <div id="modified_dates" class="modified_dates">
+            <h4>This box is for modifying a date, eg. giving a date more or less time</h4>
             <h3>Modified Dates</h3>
             <p>Date | Study Time (minutes)</p>
             <button id="add_date" class="add" onclick="add_modified_date()" type="button">Add Modified Date</button>
           </div>
           <br>
           <div id="modified_dt_ranges" class="modified_dt_ranges">
+            <h4>This box is for modifying a date range, eg. giving a week less or more time</h4>
             <h3>Modified Date Ranges</h3>
             <p>Start Date | End Date | Study Time (minutes)</p>
             <button id="add_dt_range" class="add" onclick="add_modified_dt_range()" type="button">Add Modified Date Range</button>

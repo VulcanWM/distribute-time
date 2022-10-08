@@ -10,6 +10,25 @@ input {
   color: white;
   border: 1px solid #2b6fd4;
   border-radius: 6px;
+  padding: 0.5em;
+  margin: 6px;
+  width: 20em;
+}
+
+p,label,li,span {
+  font-size: 1.15em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1.2em;
 }
 
 input:hover {
@@ -58,6 +77,7 @@ button {
   display: inline-block;
   border-radius: 0.5em;
   border: none;
+  font-size: 1em;
 }
 
 button:hover {
@@ -66,7 +86,7 @@ button:hover {
 }
 
 .add {
-  padding: 3px 5px;
+  padding: 0.5em 1em;
 }
 
 .link {
@@ -75,4 +95,12 @@ button:hover {
 
 .link:hover {
   color: white;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }
