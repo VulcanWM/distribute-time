@@ -92,7 +92,7 @@ def del_cookies():
 
 def getcookie(key):
   try:
-    if (x := session.get(key)):
+    if session.get(key, False) != False:
       return x
     else:
       return False
